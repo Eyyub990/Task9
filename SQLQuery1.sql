@@ -59,9 +59,9 @@ create table [dbo].[Products](
   
 )
 create table [dbo].[SpecificationValues](
-    [ProductId] int identity(1,1) not null,
-	[SpecificationId] int not null,
-	[Values] nvarchar(150),
+    [ProductId] int identity(1,1),
+	[SpecificationId] int,
+	[Values] nvarchar(150) not null,
 	
 )
 alter table [dbo].[SpecificationValues]
@@ -104,8 +104,8 @@ create table [dbo].[BlogPosts](
   [Body] nvarchar(100) not null,
   [ImagePath] nvarchar(100) not null,
   [CategoryId] int not null,
-  [PublishedBy] datetime,
-  [PublishedAt] datetime,
+  [PublishedBy] datetime not null,
+  [PublishedAt] datetime not null,
   [CreatedAt] datetime not null default getdate(),
   [CreatedBy] int not null,
   [LastModifiedAt] datetime,
