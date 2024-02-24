@@ -48,7 +48,7 @@ create table [dbo].[Products](
   [Description] nvarchar(100) not null,
   [Rate] float not null,
   [CategoryId] int not null,
-  [BrandId] int,
+  [BrandId] int not null,
   [CreatedAt] datetime not null default getdate(),
   [CreatedBy] int not null,
   [LastModifiedAt] datetime,
@@ -59,8 +59,8 @@ create table [dbo].[Products](
   
 )
 create table [dbo].[SpecificationValues](
-    [ProductId] int identity(1,1),
-	[SpecificationId] int,
+    [ProductId] int identity(1,1) not null,
+	[SpecificationId] int not null,
 	[Values] nvarchar(150) not null,
 	
 )
@@ -70,7 +70,7 @@ create table [dbo].[ProductImages](
     [Id] int primary key identity(1,1) not null,
 	[Name] nvarchar(100) not null,
 	[IsMain] bit not null,
-	[ProductId] int,
+	[ProductId] int not null,
 )
 create table [dbo].[Categories](
   [Id] int primary key identity(1,1) not null,
